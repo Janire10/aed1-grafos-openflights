@@ -1,0 +1,9 @@
+# Ejecutables compilados
+*.exe
+vuelos
+
+# Entornos virtuales y configuración del editor
+.venv/
+.vscode/
+output/
+__pycache__/
