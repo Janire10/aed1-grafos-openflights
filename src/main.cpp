@@ -323,7 +323,7 @@ int main() {
             {"SVQ", "ICN"}  // Sevilla -> Seúl
         };
 
-        ofstream csv_rutas("resultados_rutas.csv");
+        ofstream csv_rutas("resultados/resultados_rutas.csv");
         csv_rutas << "Origen,Destino,BFS_Escalas,BFS_Km,BFS_Tiempo_ms,Dijkstra_Escalas,Dijkstra_Km,Dijkstra_Tiempo_ms,Diferencia_Km\n";
 
         cout << "--- EXPERIMENTO 1: BFS vs DIJKSTRA ---\n";
@@ -359,7 +359,7 @@ int main() {
         cout << "Tamano de la CFC gigante (nucleo mundial): " << sccs[0].size() << " aeropuertos ("
              << (100.0 * sccs[0].size() / red.total_nodos()) << "%)\n";
 
-        ofstream csv_scc("resultados_cfc.csv");
+        ofstream csv_scc("resultados/resultados_cfc.csv");
         csv_scc << "Componente_ID,Tamano,Porcentaje\n";
         for (size_t i = 0; i < min<size_t>(15, sccs.size()); ++i) {
             csv_scc << (i + 1) << "," << sccs[i].size() << ","
@@ -370,7 +370,7 @@ int main() {
         cout << "\n--- EXPERIMENTO 3: SIMULACION DE CAIDA DE HUBS ---\n";
         auto hubs = red.top_hubs(15);
 
-        ofstream csv_resiliencia("resultados_resiliencia.csv");
+        ofstream csv_resiliencia("resultados/resultados_resiliencia.csv");
         csv_resiliencia << "Hubs_Eliminados,Ultimo_Hub_Cerrado,Tamano_CFC_Gigante,Porcentaje_Red_Conectada\n";
         csv_resiliencia << "0,Ninguno," << sccs[0].size() << ","
                         << (100.0 * sccs[0].size() / red.total_nodos()) << "\n";

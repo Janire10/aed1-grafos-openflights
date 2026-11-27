@@ -7,7 +7,7 @@ plt.style.use('seaborn-v0_8-whitegrid')
 rutas, bfs_km, dij_km = [], [], []
 bfs_ms, dij_ms = [], []
 
-with open("resultados_rutas.csv", encoding="utf-8") as f:
+with open("resultados/resultados_rutas.csv", encoding="utf-8") as f:
     reader = csv.DictReader(f)
     for row in reader:
         rutas.append(f"{row['Origen']}→{row['Destino']}")
@@ -30,7 +30,7 @@ ax.set_xticklabels(rutas, fontsize=10)
 ax.legend()
 
 plt.tight_layout()
-plt.savefig("grafica1_distancia_bfs_dijkstra.png", dpi=300)
+plt.savefig("resultados/grafica1_distancia_bfs_dijkstra.png", dpi=300)
 plt.close()
 
 #grafica 2 comparativa tiempos de ejecucion
@@ -43,13 +43,13 @@ ax.set_title('Rendimiento Computacional en C++: BFS vs. Dijkstra', fontsize=12, 
 ax.legend()
 
 plt.tight_layout()
-plt.savefig("grafica2_tiempos_ejecucion.png", dpi=300)
+plt.savefig("resultados/grafica2_tiempos_ejecucion.png", dpi=300)
 plt.close()
 
 #grafica 3 resilencia ante el cierre progresivo de hubs
 hubs_cerrados, etiquetas_hubs, pct_conectado = [], [], []
 
-with open("resultados_resiliencia.csv", encoding="utf-8") as f:
+with open("resultados/esultados_resiliencia.csv", encoding="utf-8") as f:
     reader = csv.DictReader(f)
     for row in reader:
         hubs_cerrados.append(int(row['Hubs_Eliminados']))
@@ -71,7 +71,7 @@ ax.set_xticks(hubs_cerrados)
 ax.set_ylim(min(pct_conectado) - 0.5, max(pct_conectado) + 0.5)
 
 plt.tight_layout()
-plt.savefig("grafica3_resiliencia_hubs.png", dpi=300)
+plt.savefig("resultados/grafica3_resiliencia_hubs.png", dpi=300)
 plt.close()
 
 print("[OK] Las 3 graficas se han generado correctamente en formato PNG.")

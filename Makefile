@@ -1,7 +1,7 @@
 CXX := g++
 CXXFLAGS := -std=c++17 -Wall -Wextra -O2
 TARGET := vuelos
-SRC := main.cpp
+SRC := src/main.cpp
 
 .PHONY: all datos ejecutar graficas todo clean
 
@@ -11,15 +11,16 @@ $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
 
 datos:
-	python3 preparar_datos.py
+	python3 scripts/preparar_datos.py
 
 ejecutar: $(TARGET)
+	mkdir -p resultados
 	./$(TARGET)
 
 graficas:
-	python3 generar_graficas.py
+	python3 scripts/generar_graficas.py
 
 todo: datos $(TARGET) ejecutar graficas
 
 clean:
-	rm -f $(TARGET) vuelos.exe resultados_*.csv grafica*.png
+	rm -f $(TARGET) vuelos.exe resultados/*.csv resultados/*.png

@@ -46,3 +46,8 @@ g++ -std=c++17 -O2 main.cpp -o vuelos.exe
 .\vuelos.exe
 python generar_graficas.py
 ```
+
+## Resultados Visuales
+![Comparativa de Distancia](resultados/grafica1_distancia_bfs_dijkstra.png)
+![Tiempos de Ejecución](resultados/grafica2_tiempos_ejecucion.png)
+![Resiliencia de la Red](resultados/grafica3_resiliencia_hubs.png)
